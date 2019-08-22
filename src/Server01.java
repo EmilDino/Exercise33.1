@@ -14,6 +14,18 @@ public class Server01 {
             System.out.println("serveren har modtaget en forbindelse fra: " + socket.getRemoteSocketAddress().toString());
 
             while(true) {
+                DataInputStream in = new DataInputStream
+                        (socket.getInputStream());
+                DataOutputStream out = new DataOutputStream
+                        (socket.getOutputStream());
+
+                double rate = in.readDouble();
+                System.out.println(rate);
+                double years = in.readDouble();
+                System.out.println(years);
+                double amount = in.readDouble();
+                System.out.println(amount);
+
 
             }
         } catch (IOException e) {
