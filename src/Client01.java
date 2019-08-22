@@ -41,7 +41,7 @@ public class Client01 {
 
                 System.out.println("Monthly payment: " + sum);
 
-                if(sum == 0.0) { break; }
+                if(sum == 0) { break; }
 
             }
 
