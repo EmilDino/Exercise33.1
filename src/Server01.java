@@ -39,6 +39,7 @@ public class Server01 {
             System.out.println("Severen er fucked mate");
 
             e.printStackTrace();
+            // hurra
         }
     }
 }
