@@ -19,12 +19,12 @@ public class Server01 {
                 DataOutputStream out = new DataOutputStream
                         (socket.getOutputStream());
 
-                double loanAmount = in.readDouble();
-                System.out.println(loanAmount);
-                double numberOfYears = in.readDouble();
-                System.out.println(numberOfYears);
                 double annualInterestRate = in.readDouble();
                 System.out.println(annualInterestRate);
+                double numberOfYears = in.readDouble();
+                System.out.println(numberOfYears);
+                double loanAmount = in.readDouble();
+                System.out.println(loanAmount);
                 double monthlyInterestRate = annualInterestRate / 1200;
 
                 double monthlyPayment = loanAmount * monthlyInterestRate
@@ -32,8 +32,10 @@ public class Server01 {
                         numberOfYears * 12));
                 out.writeDouble(monthlyPayment);
 
-                double totalPayment = monthlyPayment * numberOfYears * 12;
-                out.writeDouble(totalPayment);
+                /**double totalPayment = monthlyPayment * numberOfYears * 12;
+                out.writeDouble(totalPayment); */
+
+                if(monthlyPayment == 0) {break;}
             }
         } catch (IOException e) {
             System.out.println("Severen er fucked mate");

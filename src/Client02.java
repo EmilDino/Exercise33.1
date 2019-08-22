@@ -14,18 +14,24 @@ public class Client02 {
             DataOutputStream out = new DataOutputStream
                     (socket.getOutputStream());
             Scanner scanner = new Scanner(System.in);
-            double tal = 0.0;
-
+            double weightInKilograms = 0.0;
+            double heightInMeters = 0.0;
+            double bmi = 0.0;
 
             while (true) {
-                System.out.println("Skriv et tal: ");
-                tal = scanner.nextDouble();
+                System.out.println("indtast vægt i kilo");
+                weightInKilograms = scanner.nextDouble();
 
+                System.out.println("Intast højde i meter");
+                heightInMeters = scanner.nextDouble();
 
-                out.writeDouble(tal);
-                System.out.println("Areal der kommer tilbage fra sereveren: " + in.readDouble());
+                out.writeDouble(weightInKilograms);
+                out.writeDouble(heightInMeters);
+                bmi = in.readDouble();
 
-                if(tal == 0.0) { break; }
+                System.out.println("Din BMI er: " + in.readDouble());
+
+                if(bmi == 0.0) { break; }
             }
 
         }catch (IOException e) {
